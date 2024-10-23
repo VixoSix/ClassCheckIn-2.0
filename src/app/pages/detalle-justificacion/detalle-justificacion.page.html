@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button >
+        <ion-back-button (click)="volver()" text="Volver" color="dark"></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Detalle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container-color">
+    <div class="container">
+
+      <div class="titulo">
+        <h1>FECHA: {{ justificacion.fecha }}</h1>
+      </div>
+
+      <div class="wrapData">
+        <p>Asignatura</p>
+        <h2>{{ justificacion.asignatura }}</h2>
+      </div>
+
+      <div class="wrapData">
+        <p>Docente</p>
+        <h2>{{ justificacion.docente }}</h2>
+      </div>
+
+      <div class="wrapData">
+        <p>Descripción</p>
+        <h2>{{ justificacion.descripcion }}</h2>
+      </div>
+
+      <div class="img-wrap">
+        <img *ngIf="justificacion.imagen" [src]="justificacion.imagen" alt="Imagen de Justificación">
+      </div>
+
+      <div class="buttons">
+        <div class="button">
+          <ion-button (click)="editarJustificacion(this.justificacion)" expand="block">Editar Justificación</ion-button>
+        </div>
+        <div class="button">
+          <ion-button (click)="consultaEliminar()" expand="block">Eliminar</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

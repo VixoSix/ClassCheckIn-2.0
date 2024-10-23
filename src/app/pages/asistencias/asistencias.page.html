@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-back-button (click)="volver()" text="Volver" color="dark"></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Asistencias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="title-wrap">
+      <h1>Asistencias Registradas</h1>   
+    </div>
+
+    <div class="card">
+      <ion-card *ngFor="let a of asistencias">
+        <ion-card-header>
+          <ion-card-title>{{a.asignatura}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="wrap">
+            <p>Fecha: {{a.fecha}} </p>
+            <a (click)="buscarAsistencias(a)">Ver más</a>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

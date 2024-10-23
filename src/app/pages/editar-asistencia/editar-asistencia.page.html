@@ -1,0 +1,85 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button >
+        <ion-back-button (click)="volver()" text="Volver" color="dark"></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Editar Asistencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="title-wrap">
+      <h1>Editar</h1>
+    </div>
+
+    <form>
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Año</h1>
+        </div>
+        <select [(ngModel)]="asistencia.periodo" name="periodo" id="periodo" placeholder="Seleccione" size="1">
+          <option value="">Seleccione</option>
+          <option *ngFor="let p of Periodos" [value]="p.anio">
+            {{ p.anio }}
+          </option>
+        </select>
+      </div>
+
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Semestre</h1>
+        </div>
+        <select [(ngModel)]="asistencia.semestre" name="semestre" id="semestre" placeholder="Seleccione" size="1">
+          <option value="">Seleccione</option>
+          <option *ngFor="let p of Periodos" [value]="p.semestre">
+            {{ p.semestre }}
+          </option>
+        </select>
+      </div>
+
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Asignatura</h1>
+        </div>
+        <select [(ngModel)]="asistencia.asignatura" name="asignatura" id="asignatura" placeholder="Seleccione" size="1">
+          <option value="">Seleccione</option>
+          <option *ngFor="let a of Asignaturas" [value]="a.nombre">
+            {{ a.nombre }}
+          </option>
+        </select>
+      </div>
+
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Docente</h1>
+        </div>
+        <select [(ngModel)]="asistencia.docente" name="docente" id="docente" placeholder="Seleccione" size="1">
+          <option value="">Seleccione</option>
+          <option *ngFor="let a of Asignaturas" [value]="a.docente">
+            {{ a.docente }}
+          </option>
+        </select>
+      </div>
+
+      <div class="wrapItem" *ngIf="asistencia?.fecha">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Fecha de la asistencia</h1>
+        </div>
+        <input [(ngModel)]="asistencia.fecha" type="date" [ngModelOptions]="{standalone: true}" type="date">
+      </div>
+
+      <div class="wrapButton">
+        <ion-button (click)="actualizarAsistencia()" id="present-alert" expand="block">Editar Asistencia</ion-button>
+      </div>
+    </form>
+
+  </div>
+</ion-content>

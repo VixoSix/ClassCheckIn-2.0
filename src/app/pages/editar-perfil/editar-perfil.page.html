@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button >
+        <ion-back-button (click)="volver()" text="Volver" color="dark"></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Editar Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+
+    <div class="img-wrap" style="padding-bottom: 2rem;">
+      <div class="border">
+        <ion-img *ngIf="seleccionarImagen" [src]="seleccionarImagen" alt="Imagen seleccionada"></ion-img>
+      </div>
+    </div>
+
+    <form>
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Nombre</h1>
+        </div>
+        <input type="text" [(ngModel)]="Usuario.nombre" name="nombre">
+      </div>
+
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Apellido</h1>
+        </div>
+        <input type="text" [(ngModel)]="Usuario.apellido" name="apellido">
+      </div>
+
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Nombre de Usuario</h1>
+        </div>
+        <input type="text" [(ngModel)]="Usuario.nombreUsuario" name="nombreUsuario">
+      </div>
+
+      <div class="wrapItem">
+        <div class="headerItem">
+          <ion-icon name="remove-outline"></ion-icon>
+          <h1>Imagen</h1>
+        </div>
+        <input type="file" (change)="subirImagen($event)" accept="image/*" name="imagen">
+      </div>
+
+      <div class="button2">
+        <ion-button expand="block" (click)="guardarYSalir()">Guardar Cambios</ion-button>
+      </div>
+    </form>
+
+  </div>
+</ion-content>
